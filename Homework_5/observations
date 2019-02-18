@@ -1,0 +1,4 @@
+Observable trends based on the data:
+    1. The more urban an area is, the higher the number of rides per city.
+    2. The more urban an area is, the lower the average fare.
+    3. The more urban an area is, the higher the driver count.
