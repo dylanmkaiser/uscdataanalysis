@@ -1,0 +1,4 @@
+Three observable trends based on the data:
+	1) The majority of cities have a Wind Speed under 5 mph. 
+	2) The majority of cities have a humidity of over 60%.
+	3) There is a correlation between latitude and max temperature. The closer a city is to the equator (0 degrees latitude), the higher the max temperature. The closer a city is to the poles (90 degrees latitude), the lower the max temperature.
