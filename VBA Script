@@ -1,0 +1,63 @@
+Sub Stockmarket()
+
+    Dim ws As Worksheet
+    ' Loop through sheets
+    For Each ws In Worksheets
+      
+        ' Determine the Last Row
+      
+        LastRow = ws.Cells(Rows.Count, 1).End(xlUp).Row
+
+        ' Set an initial variable for holding the ticker and ticker volume
+        Dim ticker As String
+        Dim ticker_total As Double
+
+        
+        ticker_total = 0
+
+        ' Store totals of ticker symbols and volume in a table
+        Dim Summary_Table_Row As Integer
+        Summary_Table_Row = 2
+      
+        ' Set the column names for output
+        Cells(1, 9).Value = "Ticker"
+        Cells(1, 10).Value = "Ticker Volume"
+   
+        ' Loop through all ticker symbols
+        For i = 2 To LastRow
+
+            ' Check if the next row is the same ticker symbol
+            If Cells(i, 1).Value <> Cells(i + 1, 1).Value Then
+
+                ' Set the ticker symbol
+                ticker = Cells(i, 1).Value
+
+                ticker_total = ticker_total + Cells(i, 7)
+                
+                ' Print the ticker symbol in the Summary Table
+                Range("I" & Summary_Table_Row).Value = ticker
+
+                ' Print the ticker volume to the Summary Table
+                Range("J" & Summary_Table_Row).Value = ticker_total
+
+                ' Add row to summary table
+                Summary_Table_Row = Summary_Table_Row + 1
+
+                ' Reset ticker volume total
+                ticker_total = 0
+
+            Else
+
+                ' If next cell is same ticker, add 1
+                ticker_total = ticker_total + Cells(i, 7)
+
+            End If
+
+
+        Next i
+
+    ' Move through to next ws
+    Next ws
+
+
+End Sub
